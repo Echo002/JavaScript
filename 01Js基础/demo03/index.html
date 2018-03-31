@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数据类型</title>
+	</head>
+	<script type="text/javascript">
+		/*
+		 * 数据类型指的就是字面量的类型
+		 * 在JS中有六种数据类型，前五种属于基本数据类型，Object是引用数据类型
+		 * String：字符串 
+		 * 		使用双引号单引号都可以，引号不能嵌套，使用\作为转义字符
+		 * 		字符串相乘时，返回NaN(number)，即not a number
+		 * Number：数字 
+		 * 		整形和浮点都可以表示,最大值Number.MAX_VALUE，超过即无穷infinity(number)
+		 * 		最小值Number.MIN_VALUE，大于0的最小值
+		 * 		JS能满足整数的计算，但是进行浮点数运算会得出不精确的结果，谨慎使用
+		 * Boolean：布尔值
+		 * Null：空值
+		 * 		typeof null时显示object
+		 * Undefined：未定义
+		 * 		声明变量没有赋值的时候
+		 * 		typeof Undefined时显示undefined
+		 * Object：对象
+		 * 使用typeof来检查数据类型 语法：typeof 变量
+		 */
+		/*var a = "123";
+		var b = 123
+		console.log(typeof a);
+		console.log(typeof b);*/
+		
+		/*
+		 * 数据类型转换主要是是指将其他数据类型转换为
+		 * Number String Boolean
+		 */
+		var a =123;
+		var b;
+		b = a.toString();
+		b = String(a);
+		//转换为String的方法：
+		//1、调用a的toString方法，该方法不会影响原变量，Null和Undefined没有该方法
+		//2、调用String()函数，Null和Undefined直接转换为字符串
+		a = "12345px";
+		//b = Number(a);
+		
+		
+		/*转换为Number的方法：
+		 *1、调用Number函数
+		 * 具体如下：数字字符直接转数字
+		 * 			有其他字符则转换为NaN
+		 * 			null，空和空格转换为0
+		 * 			Undefined转换为NaN
+		 *2、字符串转数字专用
+		 * 调用parseInt、parseFloat函数,取出有效整数，会忽略小数点
+		 * 对非字符串使用该函数时，首先会将其转换为字符串
+		 */
+		b = parseInt(a);
+		console.log(typeof b);
+		console.log(b);
+		
+		/*
+		 * 转换为Boolean的方法：
+		 * 使用Boolean函数
+		 * NaN和0为false、空字符串为false、null和unde都是flase、对象会转换为TRUE
+		 */
+		/*
+		 * 进制问题：
+		 * "070"这样的字符串，有些浏览器当成八进制处理，而有些当成十进制处理
+		 * 解决方式：parseInt(a,10) 指定数字进制
+		 */
+	</script>
+	<body>
+		
+	</body>
+</html>
