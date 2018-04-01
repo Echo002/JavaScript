@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>数据类型</title>
+		<title>数据类型(C语言基础)</title>
 	</head>
 	<script type="text/javascript">
 		/*
@@ -55,19 +55,40 @@
 		 * 对非字符串使用该函数时，首先会将其转换为字符串
 		 */
 		b = parseInt(a);
-		console.log(typeof b);
-		console.log(b);
+		//console.log(typeof b);
+		//console.log(b);
 		
 		/*
 		 * 转换为Boolean的方法：
 		 * 使用Boolean函数
-		 * NaN和0为false、空字符串为false、null和unde都是flase、对象会转换为TRUE
+		 * NaN和0为false、空字符串为false、null和unde都是flase、对象会转换为true
 		 */
 		/*
 		 * 进制问题：
 		 * "070"这样的字符串，有些浏览器当成八进制处理，而有些当成十进制处理
 		 * 解决方式：parseInt(a,10) 指定数字进制
 		 */
+		/*
+		 * 运算问题
+		 * 在与运算中(返回原值)：
+		 * 		- 第一个值为true直接返回第二个值，如果第一个值为false则返回第一个值
+		 * 在或运算中(返回原值)：
+		 * 		- 第一个值为true直接返回第一个值，第一个值为false则直接返回第二个值
+		 * 在比较运算符中：
+		 * 		- 任何数值与NaN比较都为false
+		 * 		- 字符串比较大小与C语言相似
+		 * 在相等运算符中：
+		 * 		- undef衍生自null，故两者相等
+		 * 		- NaN不与任何值相等，包括他本身（通过isNaN来判断）
+		 * (!==)===(不) 全等运算符，比较之前不做类型转换，类型不同返回false
+		 */
+		var n1,n2,n3;
+		n1 = 50;
+		n2 = 100;
+		n3 = 150;
+		var result = n1>n2?n1>n3?n1:n3:n2>n3?n2:n3;
+		//等价于n1>n2? (n1>n3?n1:n3) : (n2>n3?n2:n3);
+		console.log(result);
 	</script>
 	<body>
 		
