@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>break与continue</title>
+		<script type="text/javascript">
+			var i,j;
+			console.time("test");
+			outer:
+			for(i=0;i<5;i++)
+			{
+				console.log("@外层循环"+i);
+				for(j=0;j<5;j++)
+				{
+					//break outer;
+					console.log("内层循环"+j);
+				}
+			}
+			console.timeEnd("test");
+			/*
+			 * 可以为循环语句建立一个label，来标识当前的循环
+			 * label:循环语句
+			 * 使用break语句时，可以在break中语句后跟一个label
+			 * 用来结束指定的循环
+			 * continue同样适用
+			 */
+			
+			/*
+			 *测试程序的性能
+			 * console.time("计时器的名字");
+			 * 需要一个计时器作为参数，作为计时器的标识
+			 */
+			//通过math.sqrt()来对一个数开方
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
