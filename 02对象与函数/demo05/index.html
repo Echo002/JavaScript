@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>对象与枚举</title>
+		<script type="text/javascript">
+			var obj = new Object();
+			obj.name = "孙悟空";
+			obj.age = 17;
+			obj.sayname = function(){
+				//alert(obj.name);
+			}
+			console.log(obj.sayname);
+			//obj.sayname();//调方法
+			/*
+			 * 函数也可以成为一个对象的属性，此时这个函数称为对象的方法
+			 * 调用函数就说调用这个函数的方法(method)
+			 * 他只是名称上的区别，本质是一样的
+			 */
+			
+			//枚举对象中的属性
+			/*
+			 * 语法：
+			 * for(var 变量 in 对象){
+			 * 	语句
+			 * }
+			 * 每次将属性值赋值给括号中的变量
+			 */
+			for(var n in obj){
+				console.log("属性名="+n);
+				console.log("属性值="+obj[n]);
+				//[]可以传变量
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>引用数据类型</title>
+		<script type="text/javascript">
+			var obj1 = new Object();
+			var obj2 = obj1;
+			obj1.name = "孙悟空";
+			obj2.name = "猪八戒";
+			//console.log(obj1.name);
+			//console.log(obj2.name);
+			/*
+			 * JS的变量都是保存在栈内存中
+			 * 		基本数据类型的值是在栈内存中存储
+			 * 		值与值之间是独立存在的，修改一个变量不会影响到其他的变量
+			 * 
+			 * 		对象是保存在堆内存中
+			 * 		每创建一个新的对象，就会在堆内存中开辟一个新的空间
+			 * 		而变量保存的是对象的内存地址(对象的引用)
+			 * 		如果两个变量保存的是一个同一个变量的引用
+			 * 		通过一个变量修改属性时，另一个也会随之发生变化
+			 */
+			
+			//使用对象字面量来创建一个对象
+			var a = 123;
+			var obj = {};
+			obj.name = "孙悟空";
+			/*
+			 * 使用对象字面量，可以在创建对象时，直接指定对象的属性
+			 * 语法：{属性名1:属性值,属性名2:属性值}，使用特殊的属性名时，需要加引号
+			 */
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
