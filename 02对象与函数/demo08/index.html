@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>使用工厂方法创建对象</title>
+		<script type="text/javascript">
+			
+			var obj = {
+				name:"孙悟空",
+				age:18,
+				gender:"男",
+				sayName:function(){
+					alert(this.name);
+				}
+			}
+			
+			//使用工厂方法创建对象,通过该方法可以大批量创建对象
+			function creatPerson(a,b,c){
+				//创建一个新对象
+				var obj = new Object();
+				
+				//向对象中添加属性
+				obj.name = a;
+				obj.age = b;
+				obj.gender = c;
+				obj.sayName = function(){
+					alert(this.name);
+				}
+				
+				//返回
+				return obj;
+			}
+			
+			var o1 = creatPerson("孙悟空",18,"男");
+			var o2 = creatPerson("沙和尚",28,"男");
+			var o3 = creatPerson("猪八戒",38,"男");
+			
+			console.log(o1);
+			console.log(o2);
+			console.log(o3);
+			
+			//o2.sayName();
+			function creatPerson(a,b){
+				//创建一个新对象
+				var obj = new Object();
+				
+				//向对象中添加属性
+				obj.name = a;
+				obj.age = b;
+				obj.sayName = function(){
+					alert("旺旺~~");
+				}
+				
+				//返回
+				return obj;
+			}
+			var o4 = creatPerson("旺财",3);
+			console.log(o4);
+			/*
+			 * 使用工厂方法创建对象，使用的构造函数都是Object
+			 * 所以创建的对象都是Object这个类型
+			 * 导致我们无法区分多种不同类型的对象
+			 * 需要用构造函数解决，构造函数首字母大写
+			 * 
+			 * 构造函数和普通函数的区别就是调用方式的不同
+			 * 普通函数是直接调用，而构造函数需要使用new关键字来调用
+			 * 
+			 * 构造函数的执行流程：
+			 * 1、立即创建一个新的对象
+			 * 2、将新建的对象设置为函数中的this，在构造函数中可以使用this引用新的对象
+			 * 3、执行函数中的代码
+			 * 4、将创建的对象作为函数的返回值返回
+			 * 使用同一个构造函数创建的对象，我们称为一类对象，也将一个构造函数称为一个类
+			 * 将通过一个构造函数创建的对象，称之为该类的实例
+			 */
+			function Person(){
+				this.name = "孙悟空";
+			}
+			var per = new Person();
+			console.log(per.name);	//没有返回值，却返回了object
+			
+			//使用instanceof来检查一个对象是不是该类的实例
+			//语法：对象 instanceof 构造函数
+			//任何对象与object做检查都会显示true
+			console.log(per instanceof Person);
+			
+			/*
+			 * this情况总结：
+			 * 1、以函数形式调用：window
+			 * 2、以方法的形式调用：调用方法的主体
+			 * 3、以构造函数调用：构造函数中新建的对象
+			 */
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
