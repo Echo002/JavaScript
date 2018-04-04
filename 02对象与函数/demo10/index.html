@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>toString</title>
+		<script type="text/javascript">
+			//当我们直接在页面中打印一个对象时，实际上输出的是toString()方法的返回值
+			//如果我们希望打印toString的时候不打印[object Object]，可以重写toString方法
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			var per = new Person("孙悟空",18);
+			per.toString = function(){
+				return "我是一个快乐的小Person";
+			}
+			var result = per.toString();
+			console.log(result);
+			console.log(per);
+			console.log(per.__proto__.__proto__.hasOwnProperty("toString"));
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
