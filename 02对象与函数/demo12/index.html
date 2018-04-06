@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组</title>
+	</head>
+	<script type="text/javascript">
+		/*
+		 * 数组
+		 */
+		//创建数组对象
+		var arr = new Array();
+		//var arr = [];
+		//var arr = [1,2,3,4];使用字面量创建数组，并为数组赋值
+		//var arr = new Array(10);使用构造函数创建数组，并为数组指定长度
+		
+		//使用typeof返回object
+		//console.log(typeof arr);
+		//向数组中添加元素：数组名[索引] = 值;
+		arr[0] = 10;
+		arr[1] = 32;
+		arr[10] = 65;
+		//console.log(arr);
+		//console.log(arr[1]);
+		//读取不存在的索引返回undefined
+		
+		/*
+		 * 获取数组长度(元素的个数)
+		 * 对于非连续的数组，返回最大下标值+1
+		 */
+		//alert(arr.length);
+		
+		//重新定义数组的长度，如果重新定义的数组长度小于原长度，多出的元素将会被删除
+		arr.length = 10;
+		
+		//像数组最后一位添加元素
+		arr[arr.length] = 20;
+		console.log(arr);
+		
+		//数组中的元素可以是任意的数据类型
+		var arr2 = ["hello",123,true,{name:"孙悟空"},function(){alert(1)},[123]];
+		console.log(arr2);
+		arr2[4]();
+	</script>
+	<body>
+		
+	</body>
+</html>
