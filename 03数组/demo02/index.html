@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组的四个方法</title>
+		<script type="text/javascript">
+			//创建一个数组
+			var arr = ["孙悟空","猪八戒","沙和尚"];
+			
+			/*
+			 * push()
+			 * 	- 向数组末尾添加一个或者多个元素，返回数组的长度
+			 */
+			var result = arr.push("唐僧","蜘蛛精");
+			
+			/*
+			 * pop()
+			 * 	- 删除并返回数组的最后一个元素，返回被删除的元素
+			 */
+			result = arr.pop();
+			
+			/*
+			 * unshift()
+			 * 	- 向数组开头添加一个或多个元素，返回数组的长度
+			 * 	- shift删除数组的第一个元素，返回被删除的元素
+			 */
+			result = arr.unshift("佛祖","玉帝");
+			result = arr.shift();
+			
+			console.log(arr);
+			alert(result);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

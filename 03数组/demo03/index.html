@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组的遍历</title>
+		<script type="text/javascript">
+			
+			function Person(name,age){
+				this.name = name;
+				this.age = age;
+			}
+			var per1 = new Person("孙悟空",8);
+			var per2 = new Person("猪八戒",14);
+			var per3 = new Person("沙僧",38);
+			var Arr = [per1,per2,per3];
+			var i = 0;
+			var newArr = [];
+			for(i = 0;i < Arr.length;i++)
+			{
+				if(Arr[i].age>=18)
+				newArr.push(Arr[i]);
+			}
+			for(i = 0;i < newArr.length;i++)
+			{
+				console.log(newArr[i].name);
+			}
+			
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>
