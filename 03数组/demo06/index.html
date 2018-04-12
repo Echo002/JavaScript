@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组的剩余方法</title>
+		<script type="text/javascript">
+			var arr1 = ["孙悟空","猪八戒","沙和尚"];
+			var arr2 = ["白骨精","蜘蛛精","玉兔精"];
+			var arr3 = ["二郎神","玉皇大帝","太上老君"];
+			//contact()用来连接两个或更多的数组
+			var result = arr1.concat(arr2,arr3);
+			//console.log(arr1);
+			//console.log(arr2);
+			//console.log(result);
+			
+			//join()将数组转换为字符串,参数(字符串)作为连接符，默认为逗号
+			var result2 = result.join("#");
+			//console.log(result2);
+			
+			//reverse()颠倒元素的顺序
+			//console.log(result.reverse());
+			
+			//sort()对数组元素进行排序，默认使用Unicode编码排序
+			console.log(result.sort(function(a,b){return b-a}));
+			//需要升序排列返回a-b，否则返回b-a
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

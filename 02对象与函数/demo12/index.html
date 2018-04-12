@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>函数的方法</title>
+		<script type="text/javascript">
+			var obj1={
+				name:"obj1",
+				sayName:function(){
+					alert(this.name);
+				}
+			};
+			var obj2={
+				name:"obj2",
+				sayName:function(){
+					alert(this.name);
+				}
+			};
+			
+			function fun(a,b){
+				console.log("a = "+a);
+				console.log("b = "+b);
+			}
+			//obj1.sayName.apply(obj2);
+			/*
+			 * call函数和apply函数都要通过函数对象来调用
+			 * 调用call和apply函数可以将一个对象指定为第一个参数
+			 * 这个对象会成为函数中的this
+			 * call()方法可以在实参对象最后依次传递参数
+			 * apply()方法需要将参数封装在数组中统一传递
+			 */
+			fun.call(obj1,1,2);
+			fun.apply(obj2,[2,3]);
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

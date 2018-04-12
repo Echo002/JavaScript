@@ -10,7 +10,7 @@
 				this.age = age;
 			}
 			var per1 = new Person("孙悟空",8);
-			var per2 = new Person("猪八戒",14);
+			var per2 = new Person("猪八戒",24);
 			var per3 = new Person("沙僧",38);
 			var Arr = [per1,per2,per3];
 			var i = 0;
@@ -20,10 +20,21 @@
 				if(Arr[i].age>=18)
 				newArr.push(Arr[i]);
 			}
-			for(i = 0;i < newArr.length;i++)
-			{
-				console.log(newArr[i].name);
-			}
+			/*
+			 * 一般我们都是使用for循环来遍历数组，JS中为我们提供了forEach()方法来遍历数组
+			 * 只支持IE8以上的浏览器
+			 * 这种函数由我们创建，但不由我们调用，称为回调函数
+			 * 数组中有几个元素就执行几次，浏览器将遍历到的元素作为实参
+			 * 该回调函数会传递三个参数：
+			 * 		1、当前元素的值
+			 * 		2、当前元素的索引
+			 * 		3、当前数组
+			 */
+			newArr.forEach(
+				function fun(value,index,arr){
+					console.log("value = "+value.name+",index = "+index);
+				}
+			);
 			
 		</script>
 	</head>

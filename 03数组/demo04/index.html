@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>数组的方法</title>
+	</head>
+	<script type="text/javascript">
+		var arr = ["孙悟空","猪八戒","沙和尚","唐僧","白骨精"];
+		 //slice(start,end)从已有数组中返回指定 的元素
+		 console.log(arr.slice(0,2));//第二个参数缺省则默认最后，传递负值则从后往前计算
+		 
+		 //splice(start,end)用来删除数组中的指定元素，返回被删除的元素
+		 var result = arr.splice(0,1,"牛魔王");//删除指定的元素并插入新的元素
+		 console.log(result);
+		 console.log(arr);
+	</script>
+	<body>
+		
+	</body>
+</html>
