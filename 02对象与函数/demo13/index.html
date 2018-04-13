@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>arguments</title>
+	</head>
+	<script type="text/javascript">
+		/*
+		 * 在调用函数时，函数每次都会传递两个隐含的参数：
+		 * 1、函数的上下文对象this
+		 * 2、封装实参的对象arguments
+		 * 	- arguments是一个类数组对象，也可以通过索引获取数据，也可以获取长度
+		 * 	- 在调用函数时，我们传递的参数都会封装到arguments中
+		 * 	- 用arguments[i]来调用形参，用arguments.length来获取形参个数
+		 * 	- arguments.callee来调用函数对象
+		 */
+		function fun(){
+			console.log(arguments);
+			console.log(arguments.callee == fun);
+		}
+		fun();
+	</script>
+	<body>
+		
+	</body>
+</html>
