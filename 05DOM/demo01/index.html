@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DOM</title>
+	</head>
+	<body>
+		<button id="btn">我是一个button</button>
+		<!--
+			<button id="btn" ondblclick="alert('讨厌！');">我是一个button</button>
+			我们可以在事件的对应属性中设置一些Js代码，当事件触发时，这些代码将会执行
+			这种写法不推荐使用，可以为按钮对应事件绑定处理函数的形式来响应事件，
+			当事件被触发时，相应的函数也会随之调用，参见22行
+		-->
+		<script type="text/javascript">
+			/*
+			 * 浏览器已经为我们提供了文档节点对象，这个对象是windows属性
+			 * 可以在页面中直接使用，文档节点代表的是整个网页
+			 */
+			var btn = document.getElementById("btn");
+			btn.innerHTML = "你好";
+			//绑定一个单击事件
+			btn.ondblclick = function(){
+				alert("你还点!");
+			}
+		</script>
+		
+	</body>
+</html>
