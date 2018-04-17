@@ -6,6 +6,17 @@
 		<link rel="stylesheet" type="text/css" href="style/css.css" />
 		<script type="text/javascript">
 			
+			/*
+			 * 定义一个函数，为指定元素绑定单击响应函数
+			 * 	参数：
+			 * 		idstr 要绑定单击响应函数的id属性
+			 * 		fun	事件的回调函数，单击元素时函数触发
+			 */
+			function myClick(idstr,fun){
+				var btn = document.getElementById(idstr);
+				btn.onclick = fun;
+			}
+			
 			window.onload = function(){
 				//查找#bj节点
 				var btn01 = document.getElementById("btn01");
@@ -71,11 +82,44 @@
 					//firstChild和childNode一样会获取空白节点，而phone.firstElementChild则不会
 					//不推荐使用，不支持IE8及以下
 				};
+				
 				//返回#bj的父节点
+				myClick("btn07",function(){
+					var bj = document.getElementById("bj");
+					var pn = bj.parentNode;
+					alert(pn.innerText);
+					/*
+					 * innerText：用来返回元素中的文本内容
+					 * 和innerHTML不同的是，他会自动将THML去除
+					 */
+				});
+				
 				//返回#android的前一个兄弟节点
+				myClick("btn08",function(){
+					var and = document.getElementById("android");
+					//alert(and.previousSibling.innerText);	前一个兄弟节点，可能获取到空白文本
+					//获取兄弟元素，IE8以下不支持
+					alert(and.previousElementSibling.innerText);
+				});
+				
 				//读取#username的value属性值
+				myClick("btn09",function(){
+					var um = document.getElementById("username");
+					alert(um.value);
+				});
+				
 				//设置#username的value属性值
+				myClick("btn10",function(){
+					var um = document.getElementById("username");
+					um.value = "hello";
+					alert(um.value);
+				});
+				
 				//返回#bj的文本值
+				myClick("btn11",function(){
+					var um = document.getElementById("bj");
+					alert(bj.innerText);
+				});
 			};
 				
 		
