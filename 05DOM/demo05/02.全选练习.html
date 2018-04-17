@@ -19,7 +19,7 @@
 			for(var i = 0; i < items.length; i++){
 				items[i].checked = true;
 			}
-			
+			checkedAllBox.checked = true;
 		};
 		
 		//2.#checkedNoBtn
@@ -27,15 +27,20 @@
 			for(var i = 0; i < items.length; i++){
 				items[i].checked = false;
 			}
+			checkedAllBox.checked = false;
 		};
 		
 		//3.#checkedRevBtn
 		checkedRevBtn.onclick = function(){
+			checkedAllBox.checked = true;
 			for(var i = 0; i < items.length; i++){
-				if(items[i].checked == false){
-					items[i].checked = true;
-				}else items[i].checked = false;
-			}
+					items[i].checked = !items[i].checked;
+				}
+			for(var i = 0; i < items.length; i++){
+					if(!items[i].checked){
+					checkedAllBox.checked = false;
+					}
+				}
 		};
 		
 		//4.#sendBtn
@@ -63,11 +68,11 @@
 				for(var i = 0; i < items.length; i++){
 					if(!items[i].checked){
 					checkedAllBox.checked = false;
-				}
+					break;
+					}
+				}	
 			};	
-			};
 		}
-		
 	};
 </script>
 </head>
