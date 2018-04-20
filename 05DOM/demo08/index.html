@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>使用DOM操作CSS(读取样式)</title>
+		<style type="text/css">
+			#box1{
+				width: 200px;
+				height: 200px;
+				background-color: red;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			
+			window.onload = function(){
+				/*
+				 * 点击按钮修改box1的样式
+				 * 语法：元素.style.样式名 = 样式值
+				 * 注意：
+				 * 		有-的名称要用驼峰命名法
+				 * 修改的是内联样式，由于内联样式优先级比较高，会立即生效
+				 * 如果在样式中写!important，则该样式优先级最高，JS也无法修改
+				 */
+				var btn01 = document.getElementById("btn01");
+				var box1 = document.getElementById("box1");	
+				//读取样式将不在演示，但是要注意，读取也是读取的内联样式
+				/*
+				 * 获取当前元素显示的样式，语法：
+				 * 	元素.currentStyle.样式名
+				 * 谁生效就获取谁,只有IE浏览器支持
+				 * 
+				 * 在其他浏览器中需要使用getComputeredStyle()这个方法来获取元素的样式
+				 * 这个方法是window的方法，可以直接使用
+				 * 参数：
+				 * 	1、要获取样式的元素
+				 * 	2、伪元素，一般都传null
+				 * 返回一个对象，保存当前元素的样式，通过对象.样式调用
+				 * 获取的都是真实的值，而不是默认值
+				 * （currentStyle获取width如果是auto，那getComputeredStyle就是一个实际的值）
+				 * IE8及以下不支持
+				 */
+				btn01.onclick = function(){
+					box1.style.width = "100px";
+					box1.style.backgroundColor = "yellowgreen";
+					//var a = box1.currentStyle.width;
+					//var obj = getComputedStyle(box1,null);
+					alert(getStyle(box1,"width"));
+				};
+				/*
+				 * currentStyle兼容IE8及以下，getComputedStyle兼容其他浏览器加IE8以上
+				 * 这两个读取到的样式都是只读的，不能修改
+				 * 下面创建一个函数整合一下
+				 * 参数：
+				 * 	1、obj 想要获取样式的对象
+				 * 	2、name 获取哪一个样式
+				 */
+				function getStyle(obj , name){
+					if(window.getComputedStyle)
+					{
+						//正常浏览器
+						return getComputedStyle(obj,null)[name];
+					}else{
+						//IE浏览器
+						return obj.currentStyle[name];	
+					}
+				}
+			};
+			
+		</script>
+	</head>
+	<body>
+		<button id = "btn01">点我一下</button>
+		<div id="box1" style="background-color: #bfa;"></div>
+	</body>
+</html>

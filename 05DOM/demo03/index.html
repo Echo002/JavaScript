@@ -2,9 +2,47 @@
 <html>
 	<head>
 		<meta charset="utf-8" />
-		<title>DOM查询练习</title>
+		<title>DOM查询扩展</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				//在document中有一个属性body，它保存的是body的引用
+				document.body;
+				//document.documentElement保存的是html根标签
+				document.documentElement;
+				//document.all代表的是页面中的所有元素
+				document.all;
+			
+				/*
+				 * 根据元素的class属性查询一组元素的节点对象
+				 * IE8及以下的浏览器不支持
+				 */
+				var box1 = document.getElementsByClassName("box1");
+			
+				//获取页面中所有的div
+				var divs = document.getElementsByTagName("div");
+				console.log(divs.length);
+				
+				//获取class为box1中所有的div
+				//在CSS中我们使用.box1 div
+				/*
+				 * 在Js中我们使用
+				 * document.querySelector()
+				 * 	- 需要一个选择器的字符串作为参数，可以根据一个CSS选择器来查询一个元素节点对象
+				 * 	- IE8以上支持
+				 * 	- 使用该方法只返回第一个唯一值
+				 * 
+				 * document.querySelectorAll()
+				 * 	- 可以将符合条件的元素保存到数组
+				 */
+				document.querySelector(".box1 div");
+				document.querySelectorAll(".box1");
+			}
+		</script>
 	</head>
 	<body>
-		
+		<div class="box1">
+			<div></div>
+		</div>
+		<div></div>
 	</body>
 </html>
