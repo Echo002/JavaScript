@@ -11,11 +11,24 @@
 				padding: 10px;
 				border: 10px solid  yellow;
 			}
+			#box4{
+				width: 200px;
+				height: 200px;
+				background-color: #bfa;
+				overflow: auto;
+			}
+			#box5{
+				width: 150px;
+				height: 300px;
+				background-color: yellow;
+			}
+
 		</style>
 		<script type="text/javascript">
 			window.onload = function(){
 				var btn01 = document.getElementById("btn01");
 				var box1 = document.getElementById("box1");
+				var box4 = document.getElementById("box4");
 				
 				btn01.onclick = function(){
 					/*
@@ -25,21 +38,50 @@
 					 * 返回元素的可见高宽度，包括内容区和内边距
 					 * 这些属性都是只读的，不能修改
 					 */
-					alert(box1.clientHeight);
+					//alert(box1.clientHeight);
 					
 					/*
 					 * offsetWidth
 					 * offsetHeight
 					 * 获取元素的整个大小，包括内容区，内边距和边框
 					 */
-					alert(box1.offsetHeight);
+					//alert(box1.offsetHeight);
 					
 					/*
 					 * offsetParent
 					 * 可以用来获取当前元素定位的父元素
+					 * 他可以获取到离当前元素最近的开启了定位的祖先元素
+					 * 若都没有开启定位，返回body
 					 */
 					var op = box1.offsetParent;
-					alert(op);
+					//alert(op);
+					
+					/*
+					 * offsetLeft
+					 * 	- 当前元素相对于其定位元素水平偏移量
+					 * offsetTop
+					 * 	- 当前元素相对于其定位元素垂直偏移量
+					 */
+					//alert(box1.offsetLeft);
+					
+					/*
+					 * scrollHeight
+					 * scrollWidth
+					 *  - 可以获取元素整个滚动区域的高度
+					 */
+					alert(box4.scrollHeight);
+					alert(box4.clientHeight);
+					
+					/*
+					 * scrollLeft
+					 * 	- 获取水平滚动条的距离
+					 * scrollTop
+					 *  - 获取垂直滚动条的距离
+					 */
+					alert(box4.scrollTop);
+					
+					//当满足box4.scrollHeight/Width - scrollTop/Left == clientHeight时，说明垂直滚动条已经到底
+					//用户协议翻到底，自动勾选同意协议，详见练习
 				}
 			}
 		</script>
@@ -48,5 +90,9 @@
 		<button id = "btn01">点我一下</button>
 		<br /><br />
 		<div id="box1"></div>
+		<br /><br />
+		<div id="box4">
+			<div id="box5"></div>
+		</div>
 	</body>
 </html>
