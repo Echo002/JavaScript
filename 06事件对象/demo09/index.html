@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>键盘事件</title>
+		<style type="text/css">
+			#box1{
+				width: 100px;
+				height: 100px;
+				background-color: red;
+				position: absolute;
+			}
+		</style>
+		<script type="text/javascript">
+			window.onload = function(){
+				var input = document.getElementsByTagName("input")[0];
+				/*
+				 * onkeydown
+				 * 	- 按住不放连续触发
+				 * 	- 连续触发时，第一次和第二次间隔长，其余稍微短一点（为了防止误操作）
+				 * onkeyup
+				 *	 - 不会连续触发
+				 * 一般绑定到可以获取焦点的对象，或者是document
+				 */
+				document.onkeydown = function(event){
+					event = event || window.event;
+					/*
+					 * 通过keycode来判断哪个键被按下
+					 * 还有altKey ctrlKey shiftKey
+					 */
+					/*if(event.keyCode == 89 && event.altKey){
+						alert("Y!");
+					}*/
+					var speed = 10;
+					if(event.ctrlKey){
+						speed = 50;
+					}
+					//按键控制box1的位置（37 38 39 40）
+					switch(event.keyCode){
+						case 37: box1.style.left = box1.offsetLeft - speed + "px"; break;
+						case 39: box1.style.left = box1.offsetLeft + speed + "px"; break;
+						case 38: box1.style.top = box1.offsetTop - speed + "px"; break;
+						case 40: box1.style.top = box1.offsetTop  + speed + "px"; break;
+					}
+				};
+				//使文本框中不能输入数字
+				input.onkeydown = function(event){
+					if(event.keyCode >= 48 && event.keyCode <=57){
+						return false;		//取消默认行为，按下的按键不会出现在文本框中
+					}	
+				};
+			};
+		</script>
+	</head>
+	<body>
+		<input type="text" />
+		<div id="box1"></div>
+	</body>
+</html>

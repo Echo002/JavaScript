@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>定时器</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var count = document.getElementById("count");
+				//1——9切换
+				/*
+				 * 希望程序间隔一段时间执行一次，使用setInterval
+				 * 可以将一个函数每隔一段时间调用一次，参数：
+				 * 	1、回调函数
+				 * 	2、间隔时间，单位为毫秒
+				 * 返回值为number类型，这个数字用来作为定时器的唯一标示
+				 * 
+				 * 
+				 */
+				var num = 1;
+				var timer = setInterval(function(){
+					count.innerHTML = num++;
+					if(num == 11){
+					clearInterval(timer);
+				}
+				},1000);
+			};
+		</script>
+	</head>
+	<body>
+		<h1 id="count"></h1>
+	</body>
+</html>

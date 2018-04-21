@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>BOM-navigator</title>
+		<script type="text/javascript">
+			/*
+			 * BOM
+			 * 	- 浏览器对象模型
+			 * 	- 通过JS操作浏览器，提供了一组对象：
+			 * 		1、Window
+			 * 			浏览器窗口，也是网页中的全局对象
+			 * 		2、Navigator
+			 * 			当前浏览器的信息，识别不同的浏览器
+			 * 		3、Location
+			 * 			当前浏览器地址栏信息，获取地址栏信息，操作浏览器跳转页面
+			 * 		4、History
+			 * 			浏览器历史记录，操作浏览器历史记录，由于隐私原因，不能获取具体历史记录，只能操作浏览器向前向后，只在当次访问有效
+			 * 		5、Screen
+			 * 			用户的屏幕信息，获取显示器相关信息
+			 * 	这些对象都是作为window的属性保存，可以通过window使用，也可以直接使用
+			 */
+			
+			var ver = navigator.userAgent;
+			if(/Chrome/.test(ver)){
+				alert("Chrome!");
+			}
+			/*
+			 * 由于历史原因，navigator大部分属性已经无法识别
+			 * 只能使用userAgent
+			 * 不能用userAgent来判断的浏览器（IE11），可以使用其中特定的对象来识别
+			 * 例如：ActiveXObject（IE独有）
+			 */
+			if("ActiveXObject" in window){
+				alert("IE");
+			}
+		</script>
+	</head>
+	<body>
+		
+	</body>
+</html>

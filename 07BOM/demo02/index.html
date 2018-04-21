@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>BOM-history</title>
+		<script type="text/javascript">
+			window.onload = function(){
+				var btn = document.getElementById("btn");
+				alert(history.length);
+				//获取当次访问链接的数量
+				/*
+				 * history.back()		返回上一页
+				 * history.forward()	跳转下一个页面
+				 * history.go()			跳转指定页面，整数参数，正向前负向后
+				 */
+				btn.onclick = function(){
+					history.back();
+				};
+			}
+		</script>
+	</head>
+	<body>
+		<h1>HISTORY</h1>
+		<button id = "btn">点我一下</button>
+	</body>
+</html>

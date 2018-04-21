@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>BOM-Loca</title>
+		<script type="text/javascript">
+			//Location获取浏览器地址栏信息
+			window.onload = function(){
+				alert(location);
+				//直接打印location获取地址栏信息（当前页面的完整路径）
+				location = "http://www.baidu.com";
+				//自动跳转到该路径，可以前进后退，并且会生成相应的历史记录
+				location.assign("http://www.baidu.com");
+				//跳转到指定目录
+				location.reload();
+				//重新加载当前页面，reload(true);会强制清空缓存刷新页面
+				location.replace("http://www.baidu.com");
+				//使用新的页面替换当前页面，不能前进或后退了
+				var btn = document.getElementById("btn");
+			}
+		</script>
+	</head>
+	<body>
+		<h1>HISTORY</h1>
+		<button id = "btn">点我一下</button>
+	</body>
+</html>
