@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>类的操作</title>
+		<style type="text/css">
+			.b1{
+				height: 100px;
+				background-color: red;
+			}
+			.b2{
+				width: 200px;
+			}
+		</style>
+		
+		<script type="text/javascript">
+			window.onload = function(){
+				var box1 = document.getElementById("box1");
+				var btn01 = document.getElementById("btn01");
+				
+				btn01.onclick = function(){
+					/*
+					 * 使用style修改元素的样式,每修改一次就要渲染一次页面
+					 * 性能低，不方便
+					 * box1.style.height  = "200px";
+					 * box1.style.width  = "200px";
+					 * box1.style.backgroundColor = "yellow";
+					 */
+					//一行代码可以同时修改多个样式,通过修改className，使表现和结构进一步分离
+					//box1.className = "b2";
+					/*addClass(box1 , "b2");
+					removeClass(box1 , "b1");*/
+					toggleClass(box1 , "b2")
+				};
+			};
+			
+			//定义一个函数，向元素中添加属性
+			function addClass(obj , cn){
+				if(!hasClass(obj,cn)){
+					obj.className += " "+cn;
+				}	
+			}
+			//判断元素中是否含有指定class
+			function hasClass(obj , cn){
+				var reg  = new RegExp("\\b" + cn + "\\b");
+				return reg.test(obj.className);
+			}
+			function removeClass(obj , cn){
+				var reg  = new RegExp("\\b" + cn + "\\b");
+				obj.className = obj.className.replace(reg , "");
+			}
+			//切换一个类，有该类则删除，没有该类则添加
+			function toggleClass(obj , cn){
+				if(hasClass(obj,cn)){
+					removeClass(obj , cn);
+				}else{
+					addClass(obj , cn);
+				}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<button id="btn01">点击按钮以后修改box1的样式</button>
+		<br /><br />
+		<div id="box1" class="b1"></div>
+	</body>
+</html>
